@@ -1,0 +1,53 @@
+package com.boats.controller;
+import com.boats.model.ScoreModel;
+import com.boats.service.ScoreService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
+
+@RestController
+@RequestMapping("/api/Score")
+public class ScoreController {
+
+    @Autowired
+    private ScoreService scoreService;
+
+    @GetMapping("/all")
+    @PostMapping("/all")
+    public List<ScoreModel> getAllReserveQualifications() {
+        return scoreService.getAllScores();
+    }
+
+    @PostMapping("/all")
+    @ResponseStatus(HttpStatus.CREATED)
+    public List<ScoreModel> getAllReserveQualifications2() {
+        return scoreService.getAllScores();
+    }
+
+    @GetMapping("/{id}")
+    public Optional<ScoreModel> getReserveQualification(@PathVariable Integer id) {
+        return scoreService.getScore(id);
+    }
+
+    @PostMapping("/save")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ScoreModel saveReserveQualification(@RequestBody ScoreModel scoreModel) {
+        return scoreService.saveScore(scoreModel);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public boolean deleteReserveQualification(@PathVariable Integer id) {
+        scoreService.deleteScore(id);
+        return true;
+    }
+
+    @PutMapping("/update")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ScoreModel updateReserveQualification(@RequestBody ScoreModel scoreModel) {
+        return scoreService.updateScore(scoreModel);
+    }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message</title>
+</head>
+
+<body>
+
+
+<h1>MESSAGE</h1>
+
+<div>
+    <p>
+        MESSAGE
+    </p>
+    <input type="text" id="idMes" placeholder="Insert your full name" hidden>
+    <textarea name="textarea" rows="10" cols="50" id="messageText">Write your message</textarea>
+    <p>
+        DOCTOR <select id="doctor"></select>
+        CLIENT <select id="client"></select>
+    </p>
+</div>
+<button onclick="agregarInformacionMes()"
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Guardar
+</button>
+<button onclick="actualizarInformacionMes()"
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Actualizar
+</button>
+<button onclick="location.href='index.html'"
+        style="background-color:#7c65b1; border-color:#563856; color:white;">Volver
+</button>
+<div id="resultadoMes"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript" src="js/Message.js"></script>
+</body>
+</html>
